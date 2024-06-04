@@ -11,5 +11,14 @@ RSpec.describe StringCalculator do
         expect(result).to eq(0)
       end
     end
+
+    context "when input is single digit" do
+      it "returns single digit" do
+        input = "1"
+        result = StringCalculator.add(input)
+
+        expect(result).to eq(1)
+      end
+    end
   end
 end

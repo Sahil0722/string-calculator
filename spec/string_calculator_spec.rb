@@ -38,5 +38,14 @@ RSpec.describe StringCalculator do
         expect(result).to eq(10)
       end
     end
+
+    context "when input contains new line delimeter" do
+      it "returns addition of numbers" do
+        input = "1,2\n4"
+        result = StringCalculator.add(input)
+
+        expect(result).to eq(7)
+      end
+    end
   end
 end

@@ -10,8 +10,14 @@ class StringCalculator
     end
 
     numbers = numbers.gsub("\n", delimiter)
+    numbers = numbers.split(delimiter).map(&:to_i)
 
-    return numbers.split(delimiter).map(&:to_i).sum
+    negative_number = numbers.select { |num| num < 0 }
+    unless negative_number.empty?
+      raise "Negative numbers not allowed: #{negative_number.first}"
+    end
+
+    return numbers.sum
   end
 
 end

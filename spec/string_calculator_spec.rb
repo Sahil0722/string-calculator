@@ -20,5 +20,14 @@ RSpec.describe StringCalculator do
         expect(result).to eq(1)
       end
     end
+
+    context "when input is two numbers" do
+      it "returns addition of two numbers" do
+        input = "1,2"
+        result = StringCalculator.add(input)
+
+        expect(result).to eq(3)
+      end
+    end
   end
 end

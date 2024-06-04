@@ -47,5 +47,14 @@ RSpec.describe StringCalculator do
         expect(result).to eq(7)
       end
     end
+
+    context "when input contains custom delimeter" do
+      it "returns addition of numbers" do
+        input = "//;\n1;2"
+        result = StringCalculator.add(input)
+
+        expect(result).to eq(3)
+      end
+    end
   end
 end

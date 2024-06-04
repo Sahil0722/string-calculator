@@ -29,5 +29,14 @@ RSpec.describe StringCalculator do
         expect(result).to eq(3)
       end
     end
+
+    context "when input is multiple numbers" do
+      it "returns addition of multiple numbers" do
+        input = "1,2,3,4"
+        result = StringCalculator.add(input)
+
+        expect(result).to eq(10)
+      end
+    end
   end
 end

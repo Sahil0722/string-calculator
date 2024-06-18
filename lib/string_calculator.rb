@@ -1,3 +1,5 @@
+require_relative 'negative_number_error'
+
 class StringCalculator
 
   def self.add(numbers)
@@ -12,9 +14,9 @@ class StringCalculator
     numbers = numbers.gsub("\n", delimiter)
     numbers = numbers.split(delimiter).map(&:to_i)
 
-    negative_number = numbers.select { |num| num < 0 }
-    unless negative_number.empty?
-      raise "Negative numbers not allowed: #{negative_number.join(", ")}"
+    negative_numbers = numbers.select { |num| num < 0 }
+    unless negative_numbers.empty?
+      raise NegativeNumberError.new(negative_numbers)
     end
 
     return numbers.sum
